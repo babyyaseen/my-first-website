@@ -53,22 +53,25 @@
             pointer-events: none;
         }
 
-        .hover-circle {
-            width: 40px;
-            height: 40px;
+        .big-circle {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             background-color: #fff;
             position: absolute;
             transform: translate(-50%, -50%);
+            overflow: hidden;
         }
 
-        .big-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #fff;
+        .sack {
+            width: 250px;
+            height: 250px;
+            border: 5px dashed #fff;
             position: absolute;
             transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
         }
 
         footer {
@@ -96,6 +99,7 @@
     <section id="hero">
         <h2>Hi, my name is Yaseen Moussa</h2>
         <div class="hover-circles">
+            <div class="sack"></div>
             <div class="big-circle" id="big-circle1"></div>
             <div class="big-circle" id="big-circle2"></div>
         </div>
@@ -124,8 +128,8 @@
             const mouseX = e.clientX;
             const mouseY = e.clientY;
 
-            bigCircle1.style.left = `${mouseX}px`;
-            bigCircle1.style.top = `${mouseY}px`;
+            bigCircle1.style.left = `${mouseX - 100}px`;
+            bigCircle1.style.top = `${mouseY - 100}px`;
 
             bigCircle2.style.left = `${mouseX - 50}px`; // Offset the second circle position
             bigCircle2.style.top = `${mouseY - 50}px`;
