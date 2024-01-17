@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #111;
             color: white;
+            overflow: hidden;
         }
 
         header {
@@ -53,21 +54,21 @@
         }
 
         .hover-circle {
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: #fff;
             position: absolute;
-            animation: moveCircle 2s infinite alternate;
+            transform: translate(-50%, -50%);
         }
 
-        @keyframes moveCircle {
-            0% {
-                transform: translate(-50%, -50%);
-            }
-            100% {
-                transform: translate(-50%, -50%) translate(50px, 50px);
-            }
+        .big-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            transform: translate(-50%, -50%);
         }
 
         footer {
@@ -95,9 +96,8 @@
     <section id="hero">
         <h2>Hi, my name is Yaseen Moussa</h2>
         <div class="hover-circles">
-            <div class="hover-circle"></div>
-            <div class="hover-circle"></div>
-            <div class="hover-circle"></div>
+            <div class="big-circle" id="big-circle1"></div>
+            <div class="big-circle" id="big-circle2"></div>
         </div>
     </section>
 
@@ -116,5 +116,20 @@
     <footer>
         <p>&copy; 2024 Yaseen Moussa. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const bigCircle1 = document.getElementById('big-circle1');
+            const bigCircle2 = document.getElementById('big-circle2');
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            bigCircle1.style.left = `${mouseX}px`;
+            bigCircle1.style.top = `${mouseY}px`;
+
+            bigCircle2.style.left = `${mouseX - 50}px`; // Offset the second circle position
+            bigCircle2.style.top = `${mouseY - 50}px`;
+        });
+    </script>
 </body>
 </html>
